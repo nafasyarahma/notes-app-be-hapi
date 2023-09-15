@@ -4,9 +4,9 @@ const routes = require('./routes');
 module.exports = {
   name: 'notes',
   version: '1.0.0',
-  register: async (server, { service }) => {
+  register: async (server, { service, validator }) => {
     // membuat instance class
-    const notesHandler = new NotesHandler(service);
+    const notesHandler = new NotesHandler(service, validator);
     server.route(routes(notesHandler));
   },
 };
